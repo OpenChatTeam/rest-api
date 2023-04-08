@@ -26,7 +26,8 @@ func main() {
 	app := InitApp()
 
 	lib.InitDatabase()
-	lib.InitialiseSnowflakeNode(rand.Int63())
+	lib.InitSnowflakeNode(rand.Int63())
+	lib.InitRedisClient()
 	RegisterRoutes(app)
 
 	app.Listen(fmt.Sprintf("%s:%s", os.Getenv("HOST"), os.Getenv("PORT")))

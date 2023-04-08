@@ -43,7 +43,7 @@ func InitDatabase() {
 	})
 
 	// Auto migration for now...
-	DB.AutoMigrate(&models.Message{})
+	DB.AutoMigrate(&models.Message{}, &models.ChatSession{}, &models.User{}, &models.UserInChatSessions{})
 
 	fmt.Printf("Connected to PostgreSQL on %s:%s\n", host, port)
 	if err != nil {
